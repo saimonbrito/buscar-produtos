@@ -20,16 +20,16 @@
             <h2>Produtos</h2>
             <span>Lista de produtos</span>
           </div>
-            <form class="form">
+            <div class="form">
               <label for="name">Produto</label>
-              <input type="text" id="name" placeholder="Digite um produto" required>
+              <input type="text" id="name" placeholder="Digite um produto" required >
               <label for="preco">Preço</label>
-              <input type="number" id="preco"  placeholder="Digite o valor produto" required>
+              <input type="number" id="preco"  placeholder="Digite o valor produto"required >
               <div class="car">
-                <button onclick="produto.adicionar()">Adcionar</button>
-                <button onclick="produto.excluir()">Deletar</button>
+                <button onclick="produto.salvar()">Salvar</button>
+                <button onclick="produto.cancelar()">Cancelar</button>
               </div>
-            </form>
+            </div>
          
       </div>
       <div class="table">
@@ -40,20 +40,13 @@
             <th>Valor</th>
             <th>açoes</th>
           </thead>
-          <tbody>
-            <tr>
-              <td>01</td>
-              <td>Cachorro quente  da vovoo </td>
-              <td>10 R$</td>
-              <td>
-                  <img src="./img/editar.png" width="15" height="15" alt="Editar produto">
-                  <img src="./img/deletar-lixeira.png" width="15" height="15" alt="Apagar produto">
-              </td>
-            </tr>
+          <tbody id="tbody">
+           
           </tbody>
         </table>
 
        </div>
+      
       </main>
 
      
