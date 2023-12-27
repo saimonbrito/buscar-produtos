@@ -1,0 +1,86 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ 
+  /* font-family: 'Roboto', sans-serif;*/
+}
+body{
+  font-family: 'Roboto', sans-serif;
+  background-color: aliceblue;
+}
+
+header{
+  background-color: blueviolet;
+  padding: 30px;
+  color: #fff;
+  text-align: center;
+}
+main {
+  width: 100%;
+  height: 100%;
+
+}
+.container {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  padding: 20px;
+}
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border:  1px solid rgb(236, 234, 234);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 10px;
+}
+.form input {
+  height: 30px;
+  text-align: center;
+  border: none;
+  background-color:aliceblue;
+  outline: 0;
+}
+.car {
+  margin-top: 10px;
+}
+.car button {
+  padding: 3px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgb(195, 194, 193);
+  background-color: blueviolet;
+  color: #fff;
+  cursor: pointer;
+}
+
+.car button:hover {
+  background-color: rgb(87, 15, 139);
+}
+.table {
+  margin: 0px 10px ;
+}
+table{
+  width: 100%;
+  border: 1px solid #ccc;
+  border-collapse:  collapse;
+  text-align: center;
+  margin-top: 10px;
+  
+ } 
+ table td {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+ }
+ table th {
+ 
+  background-color: rgb(219, 223, 227);
+ }
+ 
+ 
