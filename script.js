@@ -71,7 +71,7 @@ class Produto{
 
     }
 
-   
+    btn.innerText = 'Salvar';
 
   }
   
@@ -114,6 +114,8 @@ class Produto{
 
     btn.value = 'salvar';
     this.editId = null;
+
+    btn.innerText = 'Salvar';
   }
 
   deletar(id){
