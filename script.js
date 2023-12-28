@@ -37,7 +37,9 @@ class Produto{
            
            let imgDelete = document.createElement('img');
            imgDelete.src = 'img/deletar.png';
-            
+           imgDelete.setAttribute("onclick", "produto.deletar("+this.arrayProdutos[i].id  +")") 
+          
+
            td_acoes.appendChild(imgEdite);
            td_acoes.appendChild(imgDelete);
           
@@ -76,6 +78,18 @@ class Produto{
 
     buscarnome.value = '';
     buscarPreco.value = '';
+  }
+
+  deletar(id){
+    alert('deletado')
+    let tbody = document.getElementById('tbody')
+    for(let i = 0; i< this.arrayProdutos.length; i++){
+      if(this.arrayProdutos[i].id == id ){
+        this.arrayProdutos.slice(i,1);
+        tbody.deleteRow(i);
+      }
+
+    }
   }
 };
 

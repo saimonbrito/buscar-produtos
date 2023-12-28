@@ -60,6 +60,7 @@ main {
 
 .car button:hover {
   background-color: rgb(87, 15, 139);
+  
 }
 .table {
   margin: 0px 10px ;
@@ -86,6 +87,13 @@ table{
   width: 15px;
   height: 15px ;
   gap:5px;
+  
+ }
+ .delet {
+  cursor: pointer;
+ }
+ .delet:hover{
+  background-color: green;
  }
  
  
