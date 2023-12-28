@@ -1,16 +1,22 @@
 let buscarnome = document.getElementById('name')
 let buscarPreco = document.getElementById('preco')
+let btn = document.getElementById('btn')
 class Produto{
      
   constructor(){
     this.id = 1;
     this.arrayProdutos = [];
+    this.editId = null;
   };
 
    salvar(){
     let produto = this.lerDados();
     if(this.validarCampo(produto)){
-            this.adcionar(produto);
+        if(this.editId == null){
+          this.adcionar(produto);
+        }else{
+          this.atualizar(this.editId, produto);
+        }    
     }
     this.listaTabela();
     this.cancelar();
@@ -34,6 +40,7 @@ class Produto{
 
            let imgEdite = document.createElement('img')
            imgEdite.src = 'img/editar.png';
+           imgEdite.setAttribute("onclick", "produto.preparaEdicao("+JSON.stringify(this.arrayProdutos[i]) +")")
            
            let imgDelete = document.createElement('img');
            imgDelete.src = 'img/deletar.png';
@@ -49,9 +56,35 @@ class Produto{
    }
 
    adcionar(produto){
+    produto.preco = parseFloat(produto.preco)
     this.arrayProdutos.push(produto);
     this.id++;
   }
+
+  atualizar(id , produto){
+    for(let i = 0; i< this.arrayProdutos.length; i++){
+      if(this.arrayProdutos[i].id == id ){
+        this.arrayProdutos[i].nomeProduto = produto.nomeProduto;
+        this.arrayProdutos[i].preco = produto.preco;
+        
+      }
+
+    }
+
+   
+
+  }
+  
+  preparaEdicao(dados){
+    alert(dados.id)
+    this.editId = dados.id;
+
+    buscarnome.value = dados.nomeProduto;
+    buscarPreco.value = dados.preco; 
+
+    btn.innerText = 'Atualizar';
+  }
+
   lerDados(){
     let produto = {}
     produto.id =this.id;
@@ -78,19 +111,25 @@ class Produto{
 
     buscarnome.value = '';
     buscarPreco.value = '';
+
+    btn.value = 'salvar';
+    this.editId = null;
   }
 
   deletar(id){
-    alert('deletado')
-    let tbody = document.getElementById('tbody')
-    for(let i = 0; i< this.arrayProdutos.length; i++){
-      if(this.arrayProdutos[i].id == id ){
-        this.arrayProdutos.slice(i,1);
-        tbody.deleteRow(i);
-      }
+    if(confirm(" deseja deletar: " + id)){
+      let tbody = document.getElementById('tbody')
+      for(let i = 0; i< this.arrayProdutos.length; i++){
+        if(this.arrayProdutos[i].id == id ){
+          this.arrayProdutos.slice(i,1);
+          tbody.deleteRow(i);
+        }
 
-    }
+      }
+   }
   }
+
+  
 };
 
 const produto = new Produto();
